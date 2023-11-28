@@ -6,5 +6,5 @@
         "noEmit": false,
         "jsx": "react"
     },
-    "inclue":["src/server.ts", "src/payload.config.ts"]
+    "include":["src/server.ts", "src/payload.config.ts"]
 }

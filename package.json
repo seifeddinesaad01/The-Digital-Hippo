@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config-ts nodemon",
-      "build": "next build",
+    "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts nodemon",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
