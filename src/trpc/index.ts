@@ -1,5 +1,5 @@
 import { authRouter } from "./auth-router";
-import { publicProcedure, router } from "./trpc";
+import { router } from "./trpc";
 
 export const appRouter = router({
    auth: authRouter
