@@ -11,6 +11,9 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { AuthCredentialsValidator, TAuthCredentialsValidator } from '@/lib/validators/account-credentials-validator'
 import { trpc } from '@/trpc/client'
+import { toast } from "sonner"
+import { ZodError } from 'zod'
+import { useRouter } from 'next/navigation'
 const Page = () => {
     const {
         register,
@@ -19,10 +22,31 @@ const Page = () => {
     } = useForm<TAuthCredentialsValidator>({
         resolver: zodResolver(AuthCredentialsValidator)
     })
-    const {mutate, isLoading} = trpc.auth.createPayloadUser.useMutation({})
+    const router = useRouter()
+    const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
+        onError: (err) => {
+            if (err.data?.code === 'CONFLICT') {
+                toast.error(
+                    'This email is already in use. Sign in instead?'
+                )
+                return
+            }
+            if (err instanceof ZodError) {
+                toast.error(err.issues[0].message)
+                return
+            }
+            toast.error(
+                'Something went wrong. Please try again!'
+            )
+        },
+        onSuccess: ({ sendToEmail }) => {
+            toast.success(`Verification email sent to ${sendToEmail}`);
+            router.push('/verify-email?to='+ sendToEmail)
+        }
+    })
 
     const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
-        mutate({email, password})
+        mutate({ email, password })
     }
     return (
         <div className='container relative flex pt-20 flex-col items-center justify-center lg:px-0'>
@@ -56,7 +80,7 @@ const Page = () => {
                             <div className='grid gap-1 py-2'>
                                 <Label htmlFor='password'>Password</Label>
                                 <Input
-                                type='password'
+                                    type='password'
                                     {...register("password")}
                                     className={cn({
                                         'focus-visible:ring-red-500': errors.password,
