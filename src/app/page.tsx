@@ -1,5 +1,6 @@
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
-// import ProductReel from '@/components/ProductReel'
+
+ import ProductReel from '../components/ProductReel'
 import {
   Button,
   buttonVariants,
@@ -61,11 +62,11 @@ export default function Home() {
           </div>
         </div>
 
-        {/* <ProductReel
+         <ProductReel
           query={{ sort: 'desc', limit: 4 }}
           href='/products?sort=recent'
           title='Brand new'
-        /> */}
+        /> 
       </MaxWidthWrapper>
 
       <section className='border-t border-gray-200 bg-gray-50'>
