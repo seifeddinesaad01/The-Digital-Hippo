@@ -1,2 +1,2 @@
 # The Digital Hippo 
-![Screenshot](./public/thumbnail.jpg")
+![Alt Text](./public/thumbnail.jpg")
