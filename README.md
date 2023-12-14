@@ -1,2 +1,2 @@
 # The Digital Hippo 
-![Alt Text](./public/thumbnail.jpg")
+![Alt Text](https://ibb.co/9YJR3Kj)
