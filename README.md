@@ -9,8 +9,3 @@
 ![The Digital Hippo](./public/digitalHippoImages/f.jpg "")
 ![The Digital Hippo](./public/digitalHippoImages/k.jpg "")
 ![The Digital Hippo](./public/digitalHippoImages/m.jpg "")
-
-=======
-# The Digital Hippo 
-![Alt Text](https://ibb.co/9YJR3Kj)
->>>>>>> 9242464a3a783b6a59abd473bf4bfd98213aa98c
