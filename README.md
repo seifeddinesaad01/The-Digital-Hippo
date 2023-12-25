@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # The digital Hippo
 ![The Digital Hippo](./public/digitalHippoImages/a.jpg "")
 ![The Digital Hippo](./public/digitalHippoImages/asss.jpg "")
